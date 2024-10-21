@@ -16,7 +16,7 @@ public class PlayerScript : MonoBehaviour
     public int handValue = 0;
 
     // Betting money
-    private double money = 1000;
+    private double playerMoney = 1000.00;
 
     // Array of card objects
     public GameObject[] hand = new GameObject[53];
@@ -59,6 +59,19 @@ public class PlayerScript : MonoBehaviour
 
         cardIndex++;
         return handValue;
+    }
+
+    //Getter for money
+    public double getMoney()
+    {
+        return playerMoney;
+    }
+
+    //Allows money to be changed
+    public void addMoney(double change)
+    {
+        playerMoney = playerMoney + change;
+        return;
     }
 
 }
