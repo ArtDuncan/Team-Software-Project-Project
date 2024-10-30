@@ -58,6 +58,8 @@ public class PlayerScript : MonoBehaviour
         }
 
         cardIndex++;
+
+        UnityEngine.Debug.Log("Dealt Card Value: " + cardValue);
         return handValue;
     }
 

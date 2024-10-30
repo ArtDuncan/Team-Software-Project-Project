@@ -43,6 +43,7 @@ public class DeckScript : MonoBehaviour
         for(int i = cardSprites.Length - 1; i > 0; i--)
         {
             int j = Mathf.FloorToInt(Random.Range(0.0f, 1.0f) * cardSprites.Length - 1) + 1;
+            UnityEngine.Debug.Log(j);
             Sprite face = cardSprites[i];
             cardSprites[i] = cardSprites[j];
             cardSprites[j] = face;
@@ -57,6 +58,7 @@ public class DeckScript : MonoBehaviour
     // Set card script to sprite
     public int DealCard(CardScript cardScript)
     {
+        Shuffle();
         cardScript.SetSprite(cardSprites[currentIndex]);
         cardScript.SetValue(cardValues[currentIndex]);
         currentIndex++;
