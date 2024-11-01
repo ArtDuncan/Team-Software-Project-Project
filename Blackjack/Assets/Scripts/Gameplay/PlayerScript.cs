@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     // Access to other scripts
     public CardScript cardScript;
     public DeckScript deckScript;
+    public SplittingScript splittingScript;
 
     // Total value of player and dealer hand
     public int handValue = 0;
@@ -27,6 +28,8 @@ public class PlayerScript : MonoBehaviour
     // Track aces
     List<CardScript> aceList = new List<CardScript>();
 
+    // array to keept track of what the player gets deal
+    public GameObject[] playerHand = new GameObject[11]; 
 
     public void StartHand()
     {
@@ -56,10 +59,22 @@ public class PlayerScript : MonoBehaviour
         {
             aceList.Add(hand[cardIndex].GetComponent<CardScript>());
         }
+        
+        //ensures that the cards going into players hand do not exceed
+        if (cardIndex < playerHand.Length)
+        {
+            playerHand[cardIndex] = hand[cardIndex];
+        }
+
+
+        if (playerHand[0] != null && playerHand[1] != null && playerHand[0].GetComponent<CardScript>().GetValueOfCard() == playerHand[1].GetComponent<CardScript>().GetValueOfCard())
+        {
+          
+           splittingScript.initiateStart(playerHand[0], playerHand[1]);
+        }
 
         cardIndex++;
 
-        UnityEngine.Debug.Log("Dealt Card Value: " + cardValue);
         return handValue;
     }
 

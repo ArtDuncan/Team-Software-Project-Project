@@ -34,6 +34,7 @@ public class DeckScript : MonoBehaviour
             }
             cardValues[i] = num++;
         }
+
         currentIndex = 1;
     }
 
@@ -42,8 +43,9 @@ public class DeckScript : MonoBehaviour
         // Array swap
         for(int i = cardSprites.Length - 1; i > 0; i--)
         {
+            //test to see if split works
+            //int j = 2;
             int j = Mathf.FloorToInt(Random.Range(0.0f, 1.0f) * cardSprites.Length - 1) + 1;
-            UnityEngine.Debug.Log(j);
             Sprite face = cardSprites[i];
             cardSprites[i] = cardSprites[j];
             cardSprites[j] = face;
