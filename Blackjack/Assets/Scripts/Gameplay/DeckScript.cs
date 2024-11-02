@@ -28,11 +28,15 @@ public class DeckScript : MonoBehaviour
             // Count up to amount of cards
             num %= 13;
             // if there is remauinder then remainder is value unless over ten use ten
-            if(num > 10 || num == 0)
+            //if(num > 10 || num == 0)
+            //{
+            //    num = 10;
+            //}
+            if(num == 0)
             {
-                num = 10;
+                num = 13;
             }
-            cardValues[i] = num++;
+            cardValues[i] = num;
         }
 
         currentIndex = 1;
@@ -62,10 +66,10 @@ public class DeckScript : MonoBehaviour
     {
         Shuffle();
         cardScript.SetSprite(cardSprites[currentIndex]);
-        cardScript.SetValue(cardValues[currentIndex]);
+        cardScript.SetNum(cardValues[currentIndex]);
         currentIndex++;
 
-        return cardScript.GetValueOfCard();
+        return cardScript.getCardNum();
 
     } 
 

@@ -11,7 +11,7 @@ public class PlayerScript : MonoBehaviour
     // Access to other scripts
     public CardScript cardScript;
     public DeckScript deckScript;
-    public SplittingScript splittingScript;
+    public SpecialActions specialActions;
 
     // Total value of player and dealer hand
     public int handValue = 0;
@@ -51,9 +51,6 @@ public class PlayerScript : MonoBehaviour
         // Show card
         hand[cardIndex].GetComponent<Renderer>().enabled = true;
 
-        // Add card value to hand total
-        handValue += cardValue;
-
         // Handle 1 or 11 for ace
         if (cardValue == 1)
         {
@@ -67,14 +64,35 @@ public class PlayerScript : MonoBehaviour
         }
 
 
-        if (playerHand[0] != null && playerHand[1] != null && playerHand[0].GetComponent<CardScript>().GetValueOfCard() == playerHand[1].GetComponent<CardScript>().GetValueOfCard())
+        if(playerHand[0] != null && playerHand[1] != null)
         {
-          
-           splittingScript.initiateStart(playerHand[0], playerHand[1]);
+            if (playerHand[0].GetComponent<CardScript>().getCardNum() == playerHand[1].GetComponent<CardScript>().getCardNum())
+            {          
+                specialActions.initiateSplit(playerHand[0], playerHand[1]);
+            }
+
+            int card1Val = playerHand[0].GetComponent<CardScript>().getCardNum();
+            int card2Val = playerHand[1].GetComponent<CardScript>().getCardNum();
+            if(card1Val > 10)
+            {
+                card1Val = 10;
+            }
+            if(card2Val > 10)
+            {
+                card2Val = 10;
+            }
+            if(card1Val + card2Val == 9 || card1Val + card2Val == 10 || card1Val + card2Val == 11)
+            {
+                specialActions.initiateDD(playerHand[0], playerHand[1]);
+            }
         }
 
         cardIndex++;
-
+        if(cardValue > 10)
+        {
+            cardValue = 10;
+        }
+        handValue = handValue + cardValue;
         return handValue;
     }
 

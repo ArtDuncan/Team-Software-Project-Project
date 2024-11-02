@@ -6,6 +6,7 @@ public class CardScript : MonoBehaviour
 {
     // Value of card
     public int value = 0;
+    public int number = 0;
 
     // Getter
     public int GetValueOfCard()
@@ -13,10 +14,20 @@ public class CardScript : MonoBehaviour
         return value;
     }
 
-    // Setter for value
-    public void SetValue(int newValue)
+    public int getCardNum()
     {
-        value = newValue;
+        return number;
+    }
+
+    // Setter for value
+    public void SetNum(int newNum)
+    {
+        number = newNum;
+        value = newNum;
+        if(value > 10)
+        {
+            value = 10;
+        }
     }
     
     public string GetSpriteName()
