@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private void DealClicked()
     {
         playerScript.StartHand();
+        dealerScript.StartHand();
     }
 
     private void HitClicked()
