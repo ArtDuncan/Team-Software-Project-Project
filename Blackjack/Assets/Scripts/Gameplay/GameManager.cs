@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
     // Access to player and dealer script
     public PlayerScript playerScript;
     public PlayerScript dealerScript;
+    public PlayerScript bot1Script;
+    public PlayerScript bot2Script;
+    public PlayerScript bot3Script;
+    public PlayerScript bot4Script;
+    public PlayerScript bot5Script;
 
     void Start()
     {
@@ -27,6 +32,11 @@ public class GameManager : MonoBehaviour
     {
         playerScript.StartHand();
         dealerScript.StartHand();
+        bot1Script.StartHand();
+        bot2Script.StartHand();
+        bot3Script.StartHand();
+        bot4Script.StartHand();
+        bot5Script.StartHand();
     }
 
     private void HitClicked()

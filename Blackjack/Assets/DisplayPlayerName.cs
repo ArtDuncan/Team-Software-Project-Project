@@ -13,7 +13,6 @@ public class DisplayName : MonoBehaviour
 
         if (displayNameText != null)
         {
-            // Set the text to the static displayName from StartGame
             displayNameText.text = "" + name;
         }
         else
