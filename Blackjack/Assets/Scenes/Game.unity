@@ -548,6 +548,85 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
+--- !u!1 &106338480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 106338483}
+  - component: {fileID: 106338482}
+  - component: {fileID: 106338481}
+  m_Layer: 5
+  m_Name: Ins Bet Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &106338481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106338480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &106338482
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106338480}
+  m_CullTransparentMesh: 1
+--- !u!224 &106338483
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106338480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1039926420}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -333, y: 180}
+  m_SizeDelta: {x: 400, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &121125955
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +1016,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 145351228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1039926421}
+        m_TargetAssemblyTypeName: SpecialActions, Assembly-CSharp
+        m_MethodName: activateDD
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &145351228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1275,6 +1366,7 @@ MonoBehaviour:
   cardScript: {fileID: 898063219}
   deckScript: {fileID: 133806016}
   specialActions: {fileID: 0}
+  thisActor: {fileID: 239301190}
   handValue: 0
   hand:
   - {fileID: 898063217}
@@ -1341,6 +1433,7 @@ MonoBehaviour:
   cardScript: {fileID: 1696261377}
   deckScript: {fileID: 133806016}
   specialActions: {fileID: 0}
+  thisActor: {fileID: 0}
   handValue: 0
   hand:
   - {fileID: 1696261375}
@@ -1778,6 +1871,7 @@ MonoBehaviour:
   cardScript: {fileID: 1696261377}
   deckScript: {fileID: 133806016}
   specialActions: {fileID: 0}
+  thisActor: {fileID: 317582131}
   handValue: 0
   hand:
   - {fileID: 1696261375}
@@ -1965,6 +2059,7 @@ MonoBehaviour:
   cardScript: {fileID: 898063219}
   deckScript: {fileID: 133806016}
   specialActions: {fileID: 0}
+  thisActor: {fileID: 0}
   handValue: 0
   hand:
   - {fileID: 898063217}
@@ -2147,6 +2242,7 @@ MonoBehaviour:
   cardScript: {fileID: 102939161}
   deckScript: {fileID: 133806016}
   specialActions: {fileID: 0}
+  thisActor: {fileID: 360242699}
   handValue: 0
   hand:
   - {fileID: 102939159}
@@ -2331,7 +2427,7 @@ GameObject:
   - component: {fileID: 380516805}
   - component: {fileID: 380516804}
   m_Layer: 5
-  m_Name: Money
+  m_Name: Money Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2410,7 +2506,7 @@ GameObject:
   - component: {fileID: 412668072}
   m_Layer: 0
   m_Name: Dealer
-  m_TagString: Untagged
+  m_TagString: Dealer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2455,6 +2551,7 @@ MonoBehaviour:
   cardScript: {fileID: 181846005}
   deckScript: {fileID: 133806016}
   specialActions: {fileID: 0}
+  thisActor: {fileID: 412668070}
   handValue: 0
   hand:
   - {fileID: 181846000}
@@ -2605,6 +2702,7 @@ MonoBehaviour:
   cardScript: {fileID: 1566893303}
   deckScript: {fileID: 133806016}
   specialActions: {fileID: 0}
+  thisActor: {fileID: 0}
   handValue: 0
   hand:
   - {fileID: 1566893301}
@@ -4750,10 +4848,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23de8791228169e46b3fd38d79844a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  betAmount: 0
+  insBet: 0
   data: {fileID: 1499539609}
   moneyDisplay: {fileID: 380516804}
   betDisplay: {fileID: 1969007207}
+  insBetDisplay: {fileID: 106338481}
   betButton: {fileID: 1950148580}
+  DealBtn: {fileID: 267773190}
 --- !u!114 &1039926417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4839,6 +4941,7 @@ RectTransform:
   - {fileID: 133806015}
   - {fileID: 380516806}
   - {fileID: 1969007206}
+  - {fileID: 106338483}
   - {fileID: 321168502}
   - {fileID: 442853258}
   - {fileID: 1306664750}
@@ -4876,6 +4979,7 @@ MonoBehaviour:
   splitPanel: {fileID: 1306664749}
   ddPanel: {fileID: 363044189}
   insurancePanel: {fileID: 879295454}
+  betInfo: {fileID: 1039926416}
 --- !u!1 &1064203372
 GameObject:
   m_ObjectHideFlags: 0
@@ -5175,6 +5279,7 @@ MonoBehaviour:
   cardScript: {fileID: 586733564}
   deckScript: {fileID: 133806016}
   specialActions: {fileID: 0}
+  thisActor: {fileID: 1133636276}
   handValue: 0
   hand:
   - {fileID: 586733562}
@@ -6295,6 +6400,7 @@ MonoBehaviour:
   cardScript: {fileID: 2026721843}
   deckScript: {fileID: 133806016}
   specialActions: {fileID: 1039926421}
+  thisActor: {fileID: 1499539606}
   handValue: 0
   hand:
   - {fileID: 2026721838}
@@ -7408,6 +7514,7 @@ MonoBehaviour:
   cardScript: {fileID: 102939161}
   deckScript: {fileID: 133806016}
   specialActions: {fileID: 0}
+  thisActor: {fileID: 0}
   handValue: 0
   hand:
   - {fileID: 102939159}
@@ -7720,6 +7827,7 @@ MonoBehaviour:
   cardScript: {fileID: 586733564}
   deckScript: {fileID: 133806016}
   specialActions: {fileID: 0}
+  thisActor: {fileID: 0}
   handValue: 0
   hand:
   - {fileID: 586733562}
@@ -7984,7 +8092,7 @@ GameObject:
   - component: {fileID: 1969007208}
   - component: {fileID: 1969007207}
   m_Layer: 5
-  m_Name: Bet
+  m_Name: Bet Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8561,6 +8669,7 @@ MonoBehaviour:
   cardScript: {fileID: 1566893303}
   deckScript: {fileID: 133806016}
   specialActions: {fileID: 0}
+  thisActor: {fileID: 2105621578}
   handValue: 0
   hand:
   - {fileID: 1566893301}

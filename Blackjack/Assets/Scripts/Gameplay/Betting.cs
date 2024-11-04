@@ -7,11 +7,15 @@ public class Betting : MonoBehaviour
 {
 
     double currentMoney;
-    double betAmount = 0;
+    public double betAmount = 0;
+    private double slowBetAmount;
+    public double insBet = 0;
     public PlayerScript data;
     [SerializeField] private Text moneyDisplay;
     [SerializeField] private Text betDisplay;
+    [SerializeField] private Text insBetDisplay;
     [SerializeField] private Button betButton;
+    public Button DealBtn;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +52,40 @@ public class Betting : MonoBehaviour
         Debug.Log("Bet is " + betAmount);
         Debug.Log("Player money is " + currentMoney);
         betButton.interactable = false;
+        DealBtn.interactable = true;
+        slowBetAmount = betAmount;
+        return;
+    }
+
+    public void doubleBet()
+    {
+        currentMoney = data.getMoney();
+        if(currentMoney < betAmount)
+        {
+            Debug.Log("Too high of bet");
+            return;
+        }
+        currentMoney = currentMoney - betAmount;
+        data.addMoney(-1 * betAmount);
+        moneyDisplay.text = "Current Money: " + currentMoney;
+        betDisplay.text = "Current Bet: " + betAmount;
+        slowBetAmount = betAmount;
+        return;
+    }
+
+    public void insuranceBet()
+    {
+        currentMoney = data.getMoney();
+        if(betAmount > currentMoney || betAmount > .5 * slowBetAmount)
+        {
+            Debug.Log("Too high of bet");
+            return;
+        }
+        insBet = betAmount;
+        currentMoney = currentMoney - betAmount;
+        data.addMoney(-1 * betAmount);
+        moneyDisplay.text = "Current Money: " + currentMoney;
+        insBetDisplay.text = "Current Insurance Bet: " + insBet;
         return;
     }
 

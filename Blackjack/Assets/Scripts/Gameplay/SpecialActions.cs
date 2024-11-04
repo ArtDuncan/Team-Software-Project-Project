@@ -14,17 +14,27 @@ public class SpecialActions : MonoBehaviour
     public GameObject splitPanel;
     public GameObject ddPanel;
     public GameObject insurancePanel;
+
+    public Betting betInfo;
    
     public void initiateSplit(GameObject card1, GameObject card2)
     {
         splitPanel.SetActive(true);
         split.onClick.AddListener(() => activateSplit());
+        if(betInfo.betAmount > betInfo.data.getMoney())
+        {
+            split.interactable = false;
+        }
     }
 
     public void initiateDD(GameObject card1, GameObject card2)
     {
         ddPanel.SetActive(true);
         dd.onClick.AddListener(() => activateSplit());
+        if(betInfo.betAmount > betInfo.data.getMoney())
+        {
+            split.interactable = false;
+        }
     }
 
     public void initiateInsurance(GameObject card1, GameObject card2)
@@ -34,8 +44,20 @@ public class SpecialActions : MonoBehaviour
     }
 
     // Update is called once per frame
-    void activateSplit()
+    public void activateSplit()
     {
         
+    }
+
+    public void activateDD()
+    {
+        betInfo.doubleBet();
+        dd.interactable = false;
+    }
+
+    public void activateInsurance()
+    {
+        betInfo.insuranceBet();
+        insurance.interactable = false;
     }
 }

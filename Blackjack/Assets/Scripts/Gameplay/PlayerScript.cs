@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
+//using System.Diagnostics;
 using System.Net;
 using UnityEngine;
 
@@ -12,6 +12,8 @@ public class PlayerScript : MonoBehaviour
     public CardScript cardScript;
     public DeckScript deckScript;
     public SpecialActions specialActions;
+
+    public GameObject thisActor;
 
     // Total value of player and dealer hand
     public int handValue = 0;
@@ -66,6 +68,8 @@ public class PlayerScript : MonoBehaviour
 
         if(playerHand[0] != null && playerHand[1] != null)
         {
+            Debug.Log("Card 1 info: " + playerHand[0].GetComponent<CardScript>().getCardNum());
+            Debug.Log("Card 2 info: " + playerHand[1].GetComponent<CardScript>().getCardNum());
             if (playerHand[0].GetComponent<CardScript>().getCardNum() == playerHand[1].GetComponent<CardScript>().getCardNum())
             {          
                 specialActions.initiateSplit(playerHand[0], playerHand[1]);
@@ -84,6 +88,11 @@ public class PlayerScript : MonoBehaviour
             if(card1Val + card2Val == 9 || card1Val + card2Val == 10 || card1Val + card2Val == 11)
             {
                 specialActions.initiateDD(playerHand[0], playerHand[1]);
+            }
+
+            if(thisActor.tag == "Dealer" && playerHand[0].GetComponent<CardScript>().getCardNum() == 1)
+            {
+                specialActions.initiateInsurance(playerHand[0], playerHand[1]);
             }
         }
 

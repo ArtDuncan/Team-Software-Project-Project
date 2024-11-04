@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Listeners
+        dealBtn.interactable = false;
         dealBtn.onClick.AddListener(() => DealClicked());
         hitBtn.onClick.AddListener(() => HitClicked());
         standBtn.onClick.AddListener(() => StandClicked());
