@@ -31,8 +31,8 @@ public class Betting : MonoBehaviour
         
     }
 
-    //Allows the player to make a bet and updates texts
-    public void makeBet()
+        //Allows the player to make a bet and updates texts
+        public void makeBet()
     {
         currentMoney = data.getMoney();
         if(betAmount > currentMoney)
