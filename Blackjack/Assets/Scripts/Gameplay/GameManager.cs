@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     private void DealClicked()
     {
+        hitBtn.interactable = true;
+        standBtn.interactable = true;
         playerScript.StartHand();
         dealerScript.StartHand();
         bot1Script.StartHand();
@@ -49,11 +51,7 @@ public class GameManager : MonoBehaviour
 
     private void HitClicked()
     {
-        // Checks for room only made 10 cards
-        if(playerScript.GetCard() <= 10)
-        {
-            playerScript.GetCard();
-        }
+        playerScript.Hit();
     }
 
     private void StandClicked()

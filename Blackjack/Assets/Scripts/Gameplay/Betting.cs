@@ -11,18 +11,24 @@ public class Betting : MonoBehaviour
     private double slowBetAmount;
     public double insBet = 0;
     public PlayerScript data;
+    public ChipScript chipScript;
     [SerializeField] private Text moneyDisplay;
     [SerializeField] private Text betDisplay;
     [SerializeField] private Text insBetDisplay;
     [SerializeField] private Button betButton;
     public Button DealBtn;
+    public Button HitBtn;
+    public Button StandBtn;
 
     // Start is called before the first frame update
     void Start()
     {
         moneyDisplay.text = "Current Money: " + data.getMoney();
         betDisplay.text = "Current Bet: 0";
+        chipScript.updateChips(data.getMoney());
         betButton.interactable = true;
+        HitBtn.interactable = false;
+        StandBtn.interactable = false;
     }
 
     // Update is called once per frame
@@ -32,7 +38,7 @@ public class Betting : MonoBehaviour
     }
 
         //Allows the player to make a bet and updates texts
-        public void makeBet()
+    public void makeBet()
     {
         currentMoney = data.getMoney();
         if(betAmount > currentMoney)
@@ -54,6 +60,7 @@ public class Betting : MonoBehaviour
         betButton.interactable = false;
         DealBtn.interactable = true;
         slowBetAmount = betAmount;
+        chipScript.updateChips(data.getMoney());
         return;
     }
 

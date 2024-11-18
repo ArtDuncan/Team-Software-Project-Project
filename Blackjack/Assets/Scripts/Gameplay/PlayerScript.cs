@@ -3,6 +3,7 @@ using System.Collections.Generic;
 //using System.Diagnostics;
 using System.Net;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerScript : MonoBehaviour
     public SpecialActions specialActions;
 
     public GameObject thisActor;
+    public Betting betting;
 
     // Total value of player and dealer hand
     public int handValue = 0;
@@ -37,6 +39,26 @@ public class PlayerScript : MonoBehaviour
     {
         GetCard();
         GetCard();
+    }
+
+    public void Hit()
+    {
+        Debug.Log("Hit called. Current index is " + cardIndex + " and current user is " + thisActor);
+        HitCard();
+        
+
+    }
+
+    public int HitCard()
+    {
+        int cardValue = deckScript.DealCard(playerHand[cardIndex].GetComponent<CardScript>());
+        handValue = handValue + cardValue;
+        if(handValue > 21)
+        {
+            Debug.Log("Busted");
+        }
+        cardIndex++;
+        return handValue;
     }
 
     // Add a hand to player and dealers hand
@@ -66,8 +88,9 @@ public class PlayerScript : MonoBehaviour
         }
 
 
-        if(playerHand[0] != null && playerHand[1] != null)
+        if(playerHand[0] != null && playerHand[1] != null && cardIndex < 3)
         {
+            Debug.Log("Current User is: " + thisActor);
             Debug.Log("Card 1 info: " + playerHand[0].GetComponent<CardScript>().getCardNum());
             Debug.Log("Card 2 info: " + playerHand[1].GetComponent<CardScript>().getCardNum());
             if (playerHand[0].GetComponent<CardScript>().getCardNum() == playerHand[1].GetComponent<CardScript>().getCardNum())
