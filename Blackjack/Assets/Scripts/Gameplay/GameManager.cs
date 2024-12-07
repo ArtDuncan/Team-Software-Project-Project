@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
         dealBtn.onClick.AddListener(() => DealClicked());
         hitBtn.onClick.AddListener(() => HitClicked());
         standBtn.onClick.AddListener(() => StandClicked());
-
     }
 
     private void DealClicked()
@@ -42,11 +41,36 @@ public class GameManager : MonoBehaviour
         standBtn.interactable = true;
         playerScript.StartHand();
         dealerScript.StartHand();
-        bot1Script.StartHand();
-        bot2Script.StartHand();
-        bot3Script.StartHand();
-        bot4Script.StartHand();
-        bot5Script.StartHand();
+        switch(StartGame.botNum)
+        {
+            case 0:
+                break;
+            case 1: 
+                bot1Script.StartHand();
+                break;
+            case 2: 
+                bot1Script.StartHand();
+                bot2Script.StartHand();
+                break;
+            case 3: 
+                bot1Script.StartHand();
+                bot2Script.StartHand();
+                bot3Script.StartHand();
+                break;
+            case 4: 
+                bot1Script.StartHand();
+                bot2Script.StartHand();
+                bot3Script.StartHand();
+                bot4Script.StartHand();
+                break;
+            case 5: 
+                bot1Script.StartHand();
+                bot2Script.StartHand();
+                bot3Script.StartHand();
+                bot4Script.StartHand();
+                bot5Script.StartHand();
+                break;
+        }
     }
 
     private void HitClicked()
