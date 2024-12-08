@@ -32,47 +32,50 @@ public class PlayerScript : MonoBehaviour
     // Track aces
     List<CardScript> aceList = new List<CardScript>();
 
-    // array to keept track of what the player gets deal
+    // array to keept track of what the player gets dealt
     public GameObject[] playerHand = new GameObject[11]; 
 
     public void StartHand()
     {
         GetCard();
         GetCard();
+        betting.DealBtn.interactable = false;
     }
 
     public void Hit()
     {
         Debug.Log("Hit called. Current index is " + cardIndex + " and current user is " + thisActor);
-        HitCard();
-        
-
-    }
-
-    public int HitCard()
-    {
-        int cardValue = deckScript.DealCard(playerHand[cardIndex].GetComponent<CardScript>());
-        handValue = handValue + cardValue;
+        specialActions.splitPanel.SetActive(false);
+        specialActions.ddPanel.SetActive(false);
+        specialActions.insurancePanel.SetActive(false);
+        GetCard();
+        if(handValue == 21)
+        {
+            betting.blackWinBet();
+            return;
+        }
         if(handValue > 21)
         {
-            Debug.Log("Busted");
+            betting.loseBet();
+            return;
         }
-        cardIndex++;
-        return handValue;
     }
 
     // Add a hand to player and dealers hand
     public int GetCard()
     {
+        /**
         if (cardIndex >= hand.Length)
         {
             return handValue; // Or handle it as needed
         }
+        **/
 
         // Get card
-        int cardValue = deckScript.DealCard(hand[cardIndex].GetComponent<CardScript>());
+        int cardValue = deckScript.DealCard(playerHand[cardIndex].GetComponent<CardScript>());
 
         // Show card
+        if(cardIndex < hand.Length)
         hand[cardIndex].GetComponent<Renderer>().enabled = true;
 
         // Handle 1 or 11 for ace
@@ -82,13 +85,14 @@ public class PlayerScript : MonoBehaviour
         }
         
         //ensures that the cards going into players hand do not exceed
+        /**
         if (cardIndex < playerHand.Length)
         {
             playerHand[cardIndex] = hand[cardIndex];
         }
+        **/
 
-
-        if(playerHand[0] != null && playerHand[1] != null && cardIndex < 3)
+        if(playerHand[0] != null && playerHand[1] != null && cardIndex < 3 && thisActor.tag == "Player")
         {
             Debug.Log("Current User is: " + thisActor);
             Debug.Log("Card 1 info: " + playerHand[0].GetComponent<CardScript>().getCardNum());
@@ -117,6 +121,10 @@ public class PlayerScript : MonoBehaviour
             {
                 specialActions.initiateInsurance(playerHand[0], playerHand[1]);
             }
+        }
+        if(cardIndex >= 3)
+        {
+            Debug.Log("Dealt card is: " + playerHand[cardIndex].GetComponent<CardScript>().getCardNum());
         }
 
         cardIndex++;

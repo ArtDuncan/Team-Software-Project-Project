@@ -65,7 +65,7 @@ public class DeckScript : MonoBehaviour
     public int DealCard(CardScript cardScript)
     {
         Shuffle();
-        Debug.Log("Current Index in deckScript is " + currentIndex);
+        //Debug.Log("Current Index in deckScript is " + currentIndex);
         cardScript.SetSprite(cardSprites[currentIndex]);
         cardScript.SetNum(cardValues[currentIndex]);
         currentIndex++;
