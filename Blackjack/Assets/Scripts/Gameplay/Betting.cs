@@ -31,10 +31,15 @@ public class Betting : MonoBehaviour
         StandBtn.interactable = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void resetStuff()
     {
-        
+        HitBtn.interactable = false;
+        StandBtn.interactable = false;
+        currentMoney = data.getMoney();
+        betAmount = 0;
+        moneyDisplay.text = "Current Money: " + currentMoney;
+        betDisplay.text = "Current Bet: " + betAmount;
+        betButton.interactable = true;     
     }
 
         //Allows the player to make a bet and updates texts
@@ -61,6 +66,7 @@ public class Betting : MonoBehaviour
         DealBtn.interactable = true;
         slowBetAmount = betAmount;
         chipScript.updateChips(data.getMoney());
+        data.resetCards();
         return;
     }
 
@@ -98,45 +104,31 @@ public class Betting : MonoBehaviour
 
     public void blackWinBet()
     {
+        Debug.Log("21 was hit!");
         data.addMoney(2.5 * betAmount);
-        currentMoney = data.getMoney();
-        betAmount = 0;
-        moneyDisplay.text = "Current Money: " + currentMoney;
-        betDisplay.text = "Current Bet: " + betAmount;
-        betButton.interactable = true;
+        resetStuff();
         return;
     }
 
     public void winBet()
     {
         data.addMoney(2 * betAmount);
-        currentMoney = data.getMoney();
-        betAmount = 0;
-        moneyDisplay.text = "Current Money: " + currentMoney;
-        betDisplay.text = "Current Bet: " + betAmount;
-        betButton.interactable = true;
+        resetStuff();
         return;
     }
 
     public void drawBet()
     {
         data.addMoney(betAmount);
-        currentMoney = data.getMoney();
-        betAmount = 0;
-        moneyDisplay.text = "Current Money: " + currentMoney;
-        betDisplay.text = "Current Bet: " + betAmount;
-        betButton.interactable = true;
+        resetStuff();
         return;
     }
 
     public void loseBet()
     {
+        Debug.Log("Bet lost");
         data.addMoney(0);
-        currentMoney = data.getMoney();
-        betAmount = 0;
-        moneyDisplay.text = "Current Money: " + currentMoney;
-        betDisplay.text = "Current Bet: " + betAmount;
-        betButton.interactable = true;
+        resetStuff();
         return;
     }
 

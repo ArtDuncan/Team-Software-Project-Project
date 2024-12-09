@@ -1659,6 +1659,7 @@ MonoBehaviour:
   specialActions: {fileID: 0}
   thisActor: {fileID: 239301190}
   betting: {fileID: 1039926416}
+  back: {fileID: 21300000, guid: 9c89da1336c759d45a05488a23118de7, type: 3}
   handValue: 0
   hand:
   - {fileID: 898063217}
@@ -1767,6 +1768,7 @@ MonoBehaviour:
   specialActions: {fileID: 0}
   thisActor: {fileID: 0}
   betting: {fileID: 0}
+  back: {fileID: 0}
   handValue: 0
   hand:
   - {fileID: 1696261375}
@@ -2191,6 +2193,7 @@ MonoBehaviour:
   specialActions: {fileID: 0}
   thisActor: {fileID: 317582131}
   betting: {fileID: 1039926416}
+  back: {fileID: 21300000, guid: 9c89da1336c759d45a05488a23118de7, type: 3}
   handValue: 0
   hand:
   - {fileID: 1696261375}
@@ -2380,6 +2383,7 @@ MonoBehaviour:
   specialActions: {fileID: 0}
   thisActor: {fileID: 0}
   betting: {fileID: 0}
+  back: {fileID: 0}
   handValue: 0
   hand:
   - {fileID: 898063217}
@@ -2564,6 +2568,7 @@ MonoBehaviour:
   specialActions: {fileID: 0}
   thisActor: {fileID: 360242699}
   betting: {fileID: 1039926416}
+  back: {fileID: 21300000, guid: 9c89da1336c759d45a05488a23118de7, type: 3}
   handValue: 0
   hand:
   - {fileID: 102939159}
@@ -3069,6 +3074,7 @@ MonoBehaviour:
   specialActions: {fileID: 0}
   thisActor: {fileID: 412668070}
   betting: {fileID: 1039926416}
+  back: {fileID: 21300000, guid: 9c89da1336c759d45a05488a23118de7, type: 3}
   handValue: 0
   hand:
   - {fileID: 181846000}
@@ -3358,6 +3364,7 @@ MonoBehaviour:
   specialActions: {fileID: 0}
   thisActor: {fileID: 0}
   betting: {fileID: 0}
+  back: {fileID: 0}
   handValue: 0
   hand:
   - {fileID: 1566893301}
@@ -7060,7 +7067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1095737672
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7142,7 +7149,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -114064503
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 9c89da1336c759d45a05488a23118de7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7343,6 +7350,7 @@ MonoBehaviour:
   specialActions: {fileID: 0}
   thisActor: {fileID: 1133636276}
   betting: {fileID: 1039926416}
+  back: {fileID: 21300000, guid: 9c89da1336c759d45a05488a23118de7, type: 3}
   handValue: 0
   hand:
   - {fileID: 586733562}
@@ -8801,7 +8809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1439313406
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8883,7 +8891,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -114064503
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 9c89da1336c759d45a05488a23118de7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9278,6 +9286,7 @@ MonoBehaviour:
   specialActions: {fileID: 1039926421}
   thisActor: {fileID: 1499539606}
   betting: {fileID: 1039926416}
+  back: {fileID: 21300000, guid: 9c89da1336c759d45a05488a23118de7, type: 3}
   handValue: 0
   hand:
   - {fileID: 2026721838}
@@ -10393,6 +10402,7 @@ MonoBehaviour:
   specialActions: {fileID: 0}
   thisActor: {fileID: 0}
   betting: {fileID: 0}
+  back: {fileID: 0}
   handValue: 0
   hand:
   - {fileID: 102939159}
@@ -10707,6 +10717,7 @@ MonoBehaviour:
   specialActions: {fileID: 0}
   thisActor: {fileID: 0}
   betting: {fileID: 0}
+  back: {fileID: 0}
   handValue: 0
   hand:
   - {fileID: 586733562}
@@ -11650,6 +11661,7 @@ MonoBehaviour:
   specialActions: {fileID: 0}
   thisActor: {fileID: 2105621578}
   betting: {fileID: 1039926416}
+  back: {fileID: 21300000, guid: 9c89da1336c759d45a05488a23118de7, type: 3}
   handValue: 0
   hand:
   - {fileID: 1566893301}

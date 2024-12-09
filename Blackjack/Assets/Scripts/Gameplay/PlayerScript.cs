@@ -17,6 +17,8 @@ public class PlayerScript : MonoBehaviour
     public GameObject thisActor;
     public Betting betting;
 
+    public Sprite back;
+
     // Total value of player and dealer hand
     public int handValue = 0;
 
@@ -74,15 +76,19 @@ public class PlayerScript : MonoBehaviour
         // Get card
         int cardValue = deckScript.DealCard(playerHand[cardIndex].GetComponent<CardScript>());
 
+        /**
         // Show card
         if(cardIndex < hand.Length)
         hand[cardIndex].GetComponent<Renderer>().enabled = true;
+        **/
 
+        /**
         // Handle 1 or 11 for ace
         if (cardValue == 1)
         {
             aceList.Add(hand[cardIndex].GetComponent<CardScript>());
         }
+        **/
         
         //ensures that the cards going into players hand do not exceed
         /**
@@ -92,7 +98,7 @@ public class PlayerScript : MonoBehaviour
         }
         **/
 
-        if(playerHand[0] != null && playerHand[1] != null && cardIndex < 3 && thisActor.tag == "Player")
+        if(playerHand[0] != null && playerHand[1] != null && cardIndex < 2 && thisActor.tag == "Player")
         {
             Debug.Log("Current User is: " + thisActor);
             Debug.Log("Card 1 info: " + playerHand[0].GetComponent<CardScript>().getCardNum());
@@ -122,9 +128,10 @@ public class PlayerScript : MonoBehaviour
                 specialActions.initiateInsurance(playerHand[0], playerHand[1]);
             }
         }
-        if(cardIndex >= 3)
+        if(cardIndex >= 2)
         {
             Debug.Log("Dealt card is: " + playerHand[cardIndex].GetComponent<CardScript>().getCardNum());
+            playerHand[cardIndex].SetActive(true);
         }
 
         cardIndex++;
@@ -134,6 +141,21 @@ public class PlayerScript : MonoBehaviour
         }
         handValue = handValue + cardValue;
         return handValue;
+    }
+
+    public void resetCards()
+    {
+        handValue = 0;
+        for(int i = 2; i < cardIndex; i++)
+        {
+            playerHand[i].SetActive(false);
+        }
+        if(playerHand[0] != null && playerHand[1] != null)
+        {
+            playerHand[0].GetComponent<SpriteRenderer>().sprite = back;
+            playerHand[1].GetComponent<SpriteRenderer>().sprite = back; 
+        }
+        cardIndex = 0;
     }
 
     //Getter for money
