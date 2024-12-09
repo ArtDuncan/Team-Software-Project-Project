@@ -15,6 +15,8 @@ public class PlayerScript : MonoBehaviour
     public SpecialActions specialActions;
 
     public GameObject thisActor;
+    public GameObject playerInfo;
+    public GameObject dealerInfo;
     public Betting betting;
 
     public Sprite back;
@@ -44,59 +46,86 @@ public class PlayerScript : MonoBehaviour
         betting.DealBtn.interactable = false;
     }
 
+    public void DealerPlay()
+    {
+        while(handValue < 17)
+        {
+            Hit();
+        }
+        Stand();
+    }
+
     public void Hit()
     {
         Debug.Log("Hit called. Current index is " + cardIndex + " and current user is " + thisActor);
-        specialActions.splitPanel.SetActive(false);
-        specialActions.ddPanel.SetActive(false);
-        specialActions.insurancePanel.SetActive(false);
-        GetCard();
-        if(handValue == 21)
+        if(thisActor.tag != "Dealer")
         {
-            betting.blackWinBet();
-            return;
+            specialActions.splitPanel.SetActive(false);
+            specialActions.ddPanel.SetActive(false);
+            specialActions.insurancePanel.SetActive(false);
         }
-        if(handValue > 21)
+        GetCard();
+        if(thisActor.tag == "Player")
         {
-            betting.loseBet();
-            return;
+            if(handValue > 21)
+            {
+                betting.loseBet();
+                return;
+            }
+        }
+        if(thisActor.tag == "Dealer")
+        {
+            if(handValue > 21)
+            {
+                betting.winBet();
+                return;
+            }
+        }
+    }
+
+    public void Stand()
+    {
+        if(thisActor.tag == "Player")
+        {
+            specialActions.splitPanel.SetActive(false);
+            specialActions.ddPanel.SetActive(false);
+            specialActions.insurancePanel.SetActive(false);
+        }
+        if(thisActor.tag == "Dealer")
+        {
+            if(handValue < playerInfo.GetComponent<PlayerScript>().handValue)
+            {
+                if(playerInfo.GetComponent<PlayerScript>().handValue == 21)
+                {
+                    betting.blackWinBet();
+                    return;
+                }
+                betting.winBet();
+                return;
+            }
+            if(handValue == playerInfo.GetComponent<PlayerScript>().handValue)
+            {
+                betting.drawBet();
+                return;
+            }
+            if(handValue > playerInfo.GetComponent<PlayerScript>().handValue)
+            {
+                betting.loseBet();
+                return;
+            }
+        }
+        if(thisActor.tag == "Player")
+        {
+            dealerInfo.GetComponent<PlayerScript>().DealerPlay();
         }
     }
 
     // Add a hand to player and dealers hand
     public int GetCard()
     {
-        /**
-        if (cardIndex >= hand.Length)
-        {
-            return handValue; // Or handle it as needed
-        }
-        **/
 
         // Get card
         int cardValue = deckScript.DealCard(playerHand[cardIndex].GetComponent<CardScript>());
-
-        /**
-        // Show card
-        if(cardIndex < hand.Length)
-        hand[cardIndex].GetComponent<Renderer>().enabled = true;
-        **/
-
-        /**
-        // Handle 1 or 11 for ace
-        if (cardValue == 1)
-        {
-            aceList.Add(hand[cardIndex].GetComponent<CardScript>());
-        }
-        **/
-        
-        //ensures that the cards going into players hand do not exceed
-        /**
-        if (cardIndex < playerHand.Length)
-        {
-            playerHand[cardIndex] = hand[cardIndex];
-        }
-        **/
 
         if(playerHand[0] != null && playerHand[1] != null && cardIndex < 2 && thisActor.tag == "Player")
         {
@@ -156,6 +185,10 @@ public class PlayerScript : MonoBehaviour
             playerHand[1].GetComponent<SpriteRenderer>().sprite = back; 
         }
         cardIndex = 0;
+        if(thisActor.tag == "Player")
+        {
+            dealerInfo.GetComponent<PlayerScript>().resetCards();
+        }
     }
 
     //Getter for money

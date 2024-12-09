@@ -112,6 +112,7 @@ public class Betting : MonoBehaviour
 
     public void winBet()
     {
+        Debug.Log("Bet won!");
         data.addMoney(2 * betAmount);
         resetStuff();
         return;
@@ -119,6 +120,7 @@ public class Betting : MonoBehaviour
 
     public void drawBet()
     {
+        Debug.Log("Bet drawn!");
         data.addMoney(betAmount);
         resetStuff();
         return;

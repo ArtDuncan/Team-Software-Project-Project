@@ -46,7 +46,7 @@ public class SpecialActions : MonoBehaviour
     // Update is called once per frame
     public void activateSplit()
     {
-        
+        split.interactable = false;
     }
 
     public void activateDD()

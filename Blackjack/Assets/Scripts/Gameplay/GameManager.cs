@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     private void StandClicked()
     {
+        /**
         standClicks++;
         if (standClicks > 1)
         {
@@ -88,6 +89,8 @@ public class GameManager : MonoBehaviour
 
         HitDealer();
         standBtnText.text = "Call";
+        **/
+        playerScript.Stand();
     }
 
     private void HitDealer()
